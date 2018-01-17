@@ -9,11 +9,11 @@ Python 3.6+ because F strings are the best strings.
 2. Run `pip install -r requirements.txt` to install the dependencies
 3. (Optional) Add the "Incoming Webhooks" integration to your slack team of choice
     * Follow the configuration instructions and write down your WebHook URL
-3. Set the following environment variables:
+4. Set the following environment variables:
     * `COC_NUMBERS`: A comma separated list of phone numbers prefixed with `+`, numbers should include country code.
     * `COC_HTTP_SCHEME`: either `http` or `https`, we recommend deploying with lambda which will provide https for you.
     * `COC_SLACK_URL`: (Optional) The WebHook URL provided by the Incoming Webhooks Slack integration.
-4. Run `python coc-hotline.py`
+5. Run `python coc-hotline.py`
 
 
 # Deployment
