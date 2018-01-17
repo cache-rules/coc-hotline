@@ -1,0 +1,5 @@
+Flask==0.12.2
+requests==2.18.4
+twilio==6.10.0
+waitress==1.1.0
+zappa==0.45.1
