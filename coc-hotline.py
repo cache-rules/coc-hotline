@@ -49,25 +49,23 @@ def get_slack_url():
     global _SLACK_URL
 
     if _SLACK_URL is None:
-        _SLACK_URL = os.environ.get('COC_SLACK_URL')
-
-        if _SLACK_URL is None:
-            raise ConfigurationError('COC_SLACK_URL must be provided')
+        _SLACK_URL = os.environ.get('COC_SLACK_URL', '')
 
     return _SLACK_URL
 
 
 def send_slack_message(msg, attachments=None):
-    payload = {
-        'text': msg,
-        'username': 'CoC Hotline Bot',
-        'icon_emoji': ':rotating_light:',
-    }
+    if _SLACK_URL != '':
+        payload = {
+            'text': msg,
+            'username': 'CoC Hotline Bot',
+            'icon_emoji': ':rotating_light:',
+        }
 
-    if attachments is not None:
-        payload['attachments'] = attachments
+        if attachments is not None:
+            payload['attachments'] = attachments
 
-    requests.post(get_slack_url(), json=payload)
+        requests.post(get_slack_url(), json=payload)
 
 
 def handle_answered(data):
