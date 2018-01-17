@@ -15,7 +15,7 @@ class ConfigurationError(ValueError):
     pass
 
 
-def get_hotlilne_numbers():
+def get_hotline_numbers():
     global _HOTLINE_NUMBERS
 
     if _HOTLINE_NUMBERS is None:
@@ -130,7 +130,7 @@ def incoming_call():
     send_slack_message(f'<!channel>', msg_attachments)
     status_url = url_for('call_status', _external=True, _scheme=get_http_scheme())
 
-    for number in get_hotlilne_numbers():
+    for number in get_hotline_numbers():
         dial.number(
             number,
             status_callback_event='initiated ringing answered completed',
